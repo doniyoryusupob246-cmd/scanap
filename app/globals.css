@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #10131A;
+  --foreground: #E8EAED;
+  --card: #161B26;
+  --card-foreground: #E8EAED;
+  --popover: #161B26;
+  --popover-foreground: #E8EAED;
+  --primary: #00D1FF;
+  --primary-foreground: #10131A;
+  --secondary: #1E2432;
+  --secondary-foreground: #E8EAED;
+  --muted: #1E2432;
+  --muted-foreground: #8B95A5;
+  --accent: #00D1FF;
+  --accent-foreground: #10131A;
+  --destructive: #FF4757;
+  --destructive-foreground: #FFFFFF;
+  --border: #2A3142;
+  --input: #1E2432;
+  --ring: #00D1FF;
+  --chart-1: #00D1FF;
+  --chart-2: #00FF88;
+  --chart-3: #FFB800;
+  --chart-4: #FF4757;
+  --chart-5: #A855F7;
+  --radius: 0.75rem;
+  --warning: #FFB800;
+  --success: #00FF88;
+  --danger: #FF4757;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(22, 27, 38, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 49, 66, 0.5);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(22, 27, 38, 0.9) 0%, rgba(30, 36, 50, 0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 209, 255, 0.1);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.3), 0 0 40px rgba(0, 209, 255, 0.1);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(0, 209, 255, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00D1FF 0%, #00FF88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #00D1FF, #00FF88, #00D1FF);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 209, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 209, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Scan line effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.4), transparent);
+  animation: scanline 3s linear infinite;
+}
