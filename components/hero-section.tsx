@@ -65,7 +65,7 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="/scanap.app"
+                href="/scanap.apk"
                 download
                 className="flex rounded-xl items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 glow-primary text-lg px-4 py-2">
                 <Download className="w-5 h-5 mr-2" />
