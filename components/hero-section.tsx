@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import { motion } from "framer-motion"
-import { Shield, Download, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/lib/i18n/language-context"
+import { motion } from 'framer-motion';
+import { Shield, Download, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/lib/i18n/language-context';
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid">
@@ -21,7 +21,7 @@ export function HeroSection() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -33,7 +33,7 @@ export function HeroSection() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
       </div>
@@ -45,21 +45,18 @@ export function HeroSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
-          >
+            className="text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
-            >
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
               <Shield className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">{t.hero.badge}</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              {t.hero.title}{" "}
-              <span className="gradient-text">{t.hero.titleHighlight}</span>
+              {t.hero.title} <span className="gradient-text">{t.hero.titleHighlight}</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
@@ -67,28 +64,20 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-primary text-lg px-8 py-6"
-              >
+              <a
+                href="/scanap.app"
+                download
+                className="flex rounded-xl items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 glow-primary text-lg px-4 py-2">
                 <Download className="w-5 h-5 mr-2" />
                 {t.hero.downloadBtn}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border hover:bg-secondary text-lg px-8 py-6"
-              >
-                {t.hero.learnMore}
-              </Button>
+              </a>
             </div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="mt-12 flex items-center gap-8 justify-center lg:justify-start text-sm text-muted-foreground"
-            >
+              className="mt-12 flex items-center gap-8 justify-center lg:justify-start text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#00FF88]" />
                 <span>{t.hero.freeToUse}</span>
@@ -109,11 +98,10 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
+            className="relative">
             <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
               <div className="absolute inset-0 scanline opacity-50" />
-              
+
               {/* Dashboard Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -151,8 +139,8 @@ export function HeroSection() {
                       strokeWidth="8"
                       fill="none"
                       strokeLinecap="round"
-                      initial={{ strokeDasharray: "0 440" }}
-                      animate={{ strokeDasharray: "378 440" }}
+                      initial={{ strokeDasharray: '0 440' }}
+                      animate={{ strokeDasharray: '378 440' }}
                       transition={{ duration: 2, delay: 0.5 }}
                     />
                     <defs>
@@ -167,8 +155,7 @@ export function HeroSection() {
                       className="text-4xl font-bold gradient-text"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 1 }}
-                    >
+                      transition={{ delay: 1 }}>
                       86
                     </motion.span>
                     <span className="text-sm text-muted-foreground">/100</span>
@@ -213,8 +200,7 @@ export function HeroSection() {
             <motion.div
               className="absolute -top-4 -right-4 p-3 glass-card rounded-lg"
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+              transition={{ duration: 3, repeat: Infinity }}>
               <Shield className="w-6 h-6 text-primary" />
             </motion.div>
           </motion.div>
@@ -224,11 +210,10 @@ export function HeroSection() {
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
+          transition={{ duration: 2, repeat: Infinity }}>
           <ChevronDown className="w-6 h-6 text-muted-foreground" />
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
